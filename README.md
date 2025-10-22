@@ -1,19 +1,15 @@
 # 🧠 Neural Network From Scratch (Python + NumPy)
 
 ## Members
-- CHRISTIAN DAVE JANIOLA
-- HUSSAM BANSAO
+- CHRISTIAN DAVE JANIOLA  
+- HUSSAM BANSAO  
 - NATHANIEL BALANAY
 
-## 📘 Overview
-This project builds a simple **neural network from scratch** using only **Python and NumPy** (no ML libraries like TensorFlow, PyTorch, or scikit-learn models).  
-We trained it to classify **breast cancer tumors** as malignant or benign.
+---
 
-## Requirements
-- Make sure you have: `pip install numpy matplotlib scikit-learn
-`
-- Run the notebook
-  - Open the .ipynb notebook (or paste into Google Colab) and run all cells.
+## 📘 Overview
+This project builds a simple **neural network from scratch** using only **Python and NumPy** — no TensorFlow, PyTorch, or other machine learning libraries.  
+It classifies **breast cancer tumors** as malignant or benign using two of the most correlated features from the dataset.
 
 ---
 
@@ -23,48 +19,94 @@ We trained it to classify **breast cancer tumors** as malignant or benign.
   - `0` → Malignant  
   - `1` → Benign
 
-### Features used
-We used two selected features for visualization and simplicity:
+### Features Used
+Based on correlation analysis, the top two features were chosen for training and visualization:
+- `worst concave points`
+- `worst perimeter`
 
-Feature 0: `mean radius`
-
-Feature 1: `mean texture`
-
-You can change them in the code:
+These are selected in the code:
 ```python
-feat_idx = [0, 1]  # mean radius and mean texture
+feat1 = 'worst concave points'
+feat2 = 'worst perimeter'
 ```
+## Network Architecture
+
+- Input layer: 2 neurons (the two selected features)
+
+- Hidden layer: 4 neurons (activation: ReLU)
+
+- Output layer: 1 neuron (activation: Sigmoid)
+
+- Loss function: Mean Squared Error (MSE)
+
+- Optimizer: Gradient Descent
+
+- Iterations: 1000
+
 ## Implementation Details
 Implemented manually:
 
-- Random weight initialization
+- Random weight and bias initialization
 
-- Forward propagation (matrix computations)
-
-- Activation functions
+- Forward propagation (ReLU → Sigmoid)
 
 - Mean Squared Error loss
 
 - Backpropagation (manual gradient computation)
 
-- Parameter updates with gradient descent
+- Training performed for 1000 iterations.
+
+- Parameter updates using gradient descent
+
+- Visualization of training loss and decision boundary
+
 
 ## Visualization:
 
 - Training loss plot
+![alt text](image-2.png)
 
 - Decision boundary (for 2D inputs)
+![alt text](image-3.png)
 
 ## Results
 
-Train accuracy: `0.9055`, Test accuracy: `0.8596`
+Train accuracy: `0.941`, Test accuracy: `0.947`
 
-Loss per hundred iterations:
+Loss/Train acc/Test acc per hundred iterations:
 ```
-Iter 1/1000 — loss: 0.204422
-Iter 200/1000 — loss: 0.112362
-Iter 400/1000 — loss: 0.088395
-Iter 600/1000 — loss: 0.078742
-Iter 800/1000 — loss: 0.073664
-Iter 1000/1000 — loss: 0.070550
+Iter 100/1000 - Loss: 0.23750 | Train acc: 0.626 | Test acc: 0.632
+Iter 200/1000 - Loss: 0.22846 | Train acc: 0.626 | Test acc: 0.632
+Iter 300/1000 - Loss: 0.21034 | Train acc: 0.626 | Test acc: 0.632
+Iter 400/1000 - Loss: 0.17883 | Train acc: 0.626 | Test acc: 0.632
+Iter 500/1000 - Loss: 0.14613 | Train acc: 0.626 | Test acc: 0.632
+Iter 600/1000 - Loss: 0.11970 | Train acc: 0.932 | Test acc: 0.939
+Iter 700/1000 - Loss: 0.10001 | Train acc: 0.941 | Test acc: 0.956
+Iter 800/1000 - Loss: 0.08588 | Train acc: 0.938 | Test acc: 0.947
+Iter 900/1000 - Loss: 0.07582 | Train acc: 0.934 | Test acc: 0.947
+Iter 1000/1000 - Loss: 0.06857 | Train acc: 0.941 | Test acc: 0.947
 ```
+## Team Collaboration
+
+- Janiola, Balanay, Bansao:
+  - Weight and bias initialization
+  - Forward propagation coding
+  - Loss function implementation
+  - Backpropagation and gradient computation
+  - Training loop and visualization
+- Janiola
+  - Video and Presentation
+
+
+## Requirements / How to run
+- Make sure you have: `pip install numpy matplotlib scikit-learn seaborn pandas
+`
+- Run the notebook
+  - Open the .ipynb notebook (or paste into Google Colab) and run all cells.
+
+## Summary
+
+This activity helped us gain a deeper understanding of how a neural network operates internally without relying on high-level machine learning frameworks.
+We collaboratively built the model, analyzed its training performance, and visualized its decision-making process.
+
+## Video Presentation: https://drive.google.com/file/d/1AOnWxhVvQt7RBUc2C7mhcvFJbsJHPUhF/view?usp=sharing
